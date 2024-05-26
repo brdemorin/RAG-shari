@@ -288,7 +288,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def main():
-    st.title("Shari's Accepting Feelings Bot 🤖")
+    st.title("Shari's Burnout Bot 🤖")
     st.write("**by Shari's brother** | **Model: Mixture of GPT3.5 Turbo and Llama3 70b** 🧠") 
     st.write("This genAI model has been trained on copyrighted materials by Shari Morin.")
     #st.write("**by digitalcxpartners.com**\n\nModel: GPT3.5 Turbo")
