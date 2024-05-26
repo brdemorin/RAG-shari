@@ -230,7 +230,7 @@ def get_response(query, model_selection_user, detected_language):
 def sources_to_print(retrieved_docs):
     """Prints unique URLs and titles from retrieved documents."""
     unique_urls = set()
-    unique_titles = set()
+    unique_sources = set()
     for doc in retrieved_docs:
 
         # print(f"Document {i}:")
@@ -239,14 +239,14 @@ def sources_to_print(retrieved_docs):
         # print("Metadata:")
         # print(doc.metadata)
 
-        title = doc.metadata.get("title")
-        if title:
-            unique_titles.add(title)
+        source = doc.metadata.get("source")
+        if source:
+            unique_sources.add(source)
         url = doc.metadata.get("url")
         if url:
             unique_urls.add(url)
 
-    return unique_urls, unique_titles
+    return unique_urls, unique_sources
         #print(context)
 
 # # Custom CSS to make the sidebar width more dynamic to fit the content it contains
@@ -288,9 +288,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def main():
-    st.title("Bakersfieldcity.us Bot 🤖")
-    st.write("**by digitalcxpartners.com** | **Model: Mixture of GPT3.5 Turbo and Llama3 70b** 🧠") 
-    st.write("This genAI model has been trained on public domain information from the city of Bakersfield website.")
+    st.title("Shari's Accepting Feelings Bot 🤖")
+    st.write("**by Shari's brother** | **Model: Mixture of GPT3.5 Turbo and Llama3 70b** 🧠") 
+    st.write("This genAI model has been trained on copyrighted materials by Shari Morin.")
     #st.write("**by digitalcxpartners.com**\n\nModel: GPT3.5 Turbo")
 
     model_selection_user = st.selectbox("Select foundation model:", ["Auto", "GPT 3.5 Turbo", "Llama3 70b"], index=0)
@@ -343,11 +343,11 @@ def main():
                     query2, detected_language = get_translation(query)
                     result, retrieved_docs, num_input_tokens, input_cost, num_output_tokens, output_cost, total_cost, selected_model = get_response(query2, model_selection_user, detected_language)
                 #print(result)
-                unique_urls, unique_titles = sources_to_print(retrieved_docs)
+                unique_urls, unique_sources = sources_to_print(retrieved_docs)
                 #st.write(result)
 
                 url_list = "\n".join(f"{url}," for url in unique_urls)
-                title_list = "\n".join(f"- {title}" for title in unique_titles)  # Using bullet points for clarity
+                title_list = "\n".join(f"- {title}" for title in unique_sources)  # Using bullet points for clarity
 
                 if detected_language == "en":
                     st.markdown(f"{result}\n\n**Check out these links for more:**\n\n{url_list}\n\n**Titles sourced:**\n\n{title_list}")
